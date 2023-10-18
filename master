@@ -1,0 +1,22 @@
+class ConvertAnalogDigital:
+    def __init__(self, vaulte, bitsAmount):
+        self.vaulte = vaulte
+        self.bitsAmount = bitsAmount
+        self.maxNum = 0
+        for n in range(bitsAmount):           
+            self.maxNum += 2**n
+
+    def ToDigital(self):
+        regularValue = self.maxNum * (self.vaulte / 5)
+        binValue = bin(int(regularValue))[2:]
+        return binValue
+    
+    def SetDigitalValue(self, bin):
+        regularValue = int(bin, 2)
+        self.vaulte = regularValue / self.maxNum * 5
+        
+
+convert = ConvertAnalogDigital(4.3, 10)
+print(convert.ToDigital())
+convert.SetDigitalValue("1111111111")
+print(convert.ToDigital())
