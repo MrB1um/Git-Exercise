@@ -3,8 +3,7 @@ class ConvertAnalogDigital:
         self.vaulte = vaulte
         self.bitsAmount = bitsAmount
         self.maxNum = 0
-        for n in range(bitsAmount):           
-            self.maxNum += 2**n
+
 
     def ToDigital(self):
         regularValue = self.maxNum * (self.vaulte / 5)
